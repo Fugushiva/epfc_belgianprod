@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des acteurs!{% endblock %}
+
+{% block body %}
+
+{% for actor in actors  %}
+    <table>
+        <th>
+            <tr>
+                <td>Nom de famille</td>
+                <td>Prénom</td>
+                <td>genre</td>
+                <td>naissance</td>
+            <tr>
+            
+        </tr>
+        <tbody>
+            <tr>
+                <td>{{actor.firstname}}</td>
+                <td>{{actor.lastname|upper}}</td>
+                <td>{{actor.gender =='m' ? "Homme" : (actor.gender == "f" ? "Femme":"Non binaire")}}</td>
+                <td>{{actor.birthday|date("d-m-Y")}}</td>
+            </tr>
+        <tbody>
+    </table>
+{% else %}
+<p>aucun acteurs</p>
+{% endfor %}
+
+
+{% endblock %}
